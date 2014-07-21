@@ -1,0 +1,8 @@
+{
+  "id": "foo",
+  "discovery": "explicit",
+  "environments": {
+    "_default": {
+    }
+  }
+}

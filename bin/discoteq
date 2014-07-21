@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require 'pathname'
+lib_path = Pathname.new(__FILE__).join('../../lib').expand_path.to_s
+$LOAD_PATH.unshift(lib_path) unless $LOAD_PATH.include? lib_path
+
+require 'discoteq'
+
+# discoteq: discover services from chef and provide them as json
+
+Discoteq.config = JSON.load ARGF.read
+sm = Discoteq.service_map
+STDOUT.puts sm.to_json

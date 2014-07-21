@@ -1,0 +1,30 @@
+AllCops:
+  Exclude:
+    # let's get wierd with testing
+    - !ruby/regexp /test/
+    # activesupport doesn't <3 rubocop
+    - !ruby/regexp /lib/discoteq/core_ext/string/constantize.rb/
+
+# Single line 'if' should be avoided unless it's really short
+Style/IfUnlessModifier:
+  MaxLineLength: 48
+
+# This isn't lisp, folks
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+# Sometimes you have to read code on terrible terminals
+Style/LineLength:
+  Max: 72
+
+# Brevity is clarity
+Style/SpaceInsideBlockBraces:
+  EnforcedStyle: no_space
+  SpaceBeforeBlockParameters: false
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+# Apparently emulating type safety requires code.
+# Don't break this unless you have to.
+Style/MethodLength:
+  Max: 15
